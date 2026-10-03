@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Estudiantil - System Plus</title>
+    <!-- Vinculación corregida a Style.css con mayúscula -->
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <!-- ========================================================== -->
+    <!-- VISTA 1: PANTALLA DE LOGIN SYSTEM PLUS                     -->
+    <!-- ========================================================== -->
+    <div id="vista-login" class="seccion-pantalla">
+        <div class="contenedor-login">
+            <div class="caja-login">
+                <div class="encabezado-login">
+                    
+                    <!-- Logo del Instituto (Ruta actualizada) -->
+                    <div class="contenedor-logo-login">
+                        <img src="Assets/logotipo.png" alt="Logo System Plus" class="img-logo-login" onerror="this.style.display='none'; document.getElementById('alt-logo-login').style.display='block';">
+                    </div>
+
+                    <!-- Se removió el <h2> duplicado para que no salga dos veces el nombre -->
+                    <p>Portal Técnico Laboral de Estudiantes</p>
+                </div>
+
+                <!-- Alerta de credenciales incorrectas -->
+                <div id="mensaje-error" class="alerta-error oculto">
+                    Código o contraseña incorrectos. Intenta con <strong>2026</strong> / <strong>1234</strong>
+                </div>
+
+                <form id="form-login" class="formulario-login">
+                    <div class="grupo-campo">
+                        <label for="usuario">Código Estudiantil / Documento</label>
+                        <input type="text" id="usuario" placeholder="Ej. 20261085" value="2026" required>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="password">Contraseña de Acceso</label>
+                        <input type="password" id="password" placeholder="••••••••" value="1234" required>
+                    </div>
+
+                    <button type="submit" class="boton-ingreso">Iniciar Sesión de Estudiante</button>
+                </form>
+
+                <div class="pie-login">
+                    <p>¿Problemas para ingresar? <a href="#">Contactar a Secretaría System Plus</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- VISTA 2: DASHBOARD ESTUDIANTIL SYSTEM PLUS                 -->
+    <!-- ========================================================== -->
+    <div id="vista-dashboard" class="seccion-pantalla oculto">
+        
+        <!-- Header Institucional -->
+        <header class="barra-superior">
+            <div class="contenedor-header">
+                <div class="logo-institucion">
+                    
+                    <!-- Logo Header (Ruta actualizada) -->
+                    <img src="Assets/Logo_Header.png" alt="System Plus" class="img-logo-header" onerror="this.style.display='none'; document.getElementById('alt-logo-header').style.display='inline';">
+
+                    <div>
+                        <h1>SYSTEM <span>PLUS</span></h1>
+                        <span class="subtitulo-logo">Instituto Técnico Laboral</span>
+                    </div>
+                </div>
+
+                <div class="perfil-estudiante">
+                    <div class="contenedor-avatar">
+                        <img src="Assets/Estudiante.png" alt="Foto de Estudiante" class="avatar-estudiante" onerror="this.src='https://via.placeholder.com/45/1e293b/ffffff?text=JP'">
+                    </div>
+
+                    <div class="info-estudiante">
+                        <span id="nombre-usuario" class="nombre-estudiante">Juan Pablo Pérez</span>
+                        <small class="carrera-estudiante">T.L. en Desarrollador Web • Módulo II</small>
+                    </div>
+                    <button id="btn-logout" class="boton-logout">Cerrar Sesión</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenedor-principal">
+
+            <!-- Indicadores Académicos -->
+            <section class="seccion-kpi">
+                <div class="tarjeta-kpi kpi-rojo">
+                    <div class="kpi-info">
+                        <span class="kpi-titulo">Promedio General</span>
+                        <span class="kpi-numero">4.8 <small>/ 5.0</small></span>
+                    </div>
+                    <div class="kpi-icono">📊</div>
+                </div>
+                <div class="tarjeta-kpi kpi-azul">
+                    <div class="kpi-info">
+                        <span class="kpi-titulo">Módulos Aprobados</span>
+                        <span class="kpi-numero">1 <small>/ 4 Módulos</small></span>
+                    </div>
+                    <div class="kpi-icono">📚</div>
+                </div>
+                <div class="tarjeta-kpi kpi-verde">
+                    <div class="kpi-info">
+                        <span class="kpi-titulo">Horas Prácticas</span>
+                        <span class="kpi-numero">160 <small>Horas acumuladas</small></span>
+                    </div>
+                    <div class="kpi-icono">⚙️</div>
+                </div>
+                <div class="tarjeta-kpi kpi-amarillo">
+                    <div class="kpi-info">
+                        <span class="kpi-titulo">Asistencia Activa</span>
+                        <span class="kpi-numero">96% <small>Asistencia acumulada</small></span>
+                    </div>
+                    <div class="kpi-icono">✅</div>
+                </div>
+            </section>
+
+            <!-- Rejilla Principal: Módulos Actuales + Lateral -->
+            <div class="rejilla-dashboard">
+
+                <!-- Módulos de la Formación Técnica -->
+                <section class="panel-contenido">
+                    <div class="cabecera-panel">
+                        <h2>💻 Mis Módulos Técnicos en Curso</h2>
+                        <button id="btn-abrir-modal" class="boton-primario">Solicitar Certificado</button>
+                    </div>
+
+                    <div class="rejilla-cursos">
+                        <!-- Módulo 1 -->
+                        <div class="tarjeta-curso">
+                            <div class="cabecera-curso">
+                                <span class="codigo-curso">MOD-DEV2</span>
+                                <span class="badge-estado activo">En Curso</span>
+                            </div>
+                            <h3>Desarrollador Web (HTML/CSS)</h3>
+                            <p class="docente-curso">👨‍🏫 Prof. Sebastian Fernando Yusti</p>
+                            <div class="meta-curso">
+                                <span>Lun y Mié (08:00 - 11:00 AM)</span>
+                                <span>Lab 2 - System Plus</span>
+                            </div>
+                            <div class="barra-progreso-contenedor">
+                                <div class="progreso-texto"><span>Avance Módulo</span> <span>85%</span></div>
+                                <div class="barra-progreso"><div class="relleno-progreso" style="width: 85%;"></div></div>
+                            </div>
+                        </div>
+
+                        <!-- Módulo 2 -->
+                        <div class="tarjeta-curso">
+                            <div class="cabecera-curso">
+                                <span class="codigo-curso">MOD-HARD1</span>
+                                <span class="badge-estado activo">En Curso</span>
+                            </div>
+                            <h3>Mantenimiento de PC & Ensamble</h3>
+                            <p class="docente-curso">👨‍🏫 Prof. Harry Alexander Ocampo</p>
+                            <div class="meta-curso">
+                                <span>Mar y Jue (10:00 - 12:00 PM)</span>
+                                <span>Taller de Mantenimiento</span>
+                            </div>
+                            <div class="barra-progreso-contenedor">
+                                <div class="progreso-texto"><span>Avance Módulo</span> <span>60%</span></div>
+                                <div class="barra-progreso"><div class="relleno-progreso" style="width: 60%;"></div></div>
+                            </div>
+                        </div>
+
+                        <!-- Módulo 3 -->
+                        <div class="tarjeta-curso">
+                            <div class="cabecera-curso">
+                                <span class="codigo-curso">MOD-DIS1</span>
+                                <span class="badge-estado activo">En Curso</span>
+                            </div>
+                            <h3>Asistente de Diseño Gráfico</h3>
+                            <p class="docente-curso">👩‍🏫 Prof. Yuber Hernando Rivas</p>
+                            <div class="meta-curso">
+                                <span>Viernes (02:00 - 06:00 PM)</span>
+                                <span>Sala de Diseño</span>
+                            </div>
+                            <div class="barra-progreso-contenedor">
+                                <div class="progreso-texto"><span>Avance Módulo</span> <span>70%</span></div>
+                                <div class="barra-progreso"><div class="relleno-progreso" style="width: 70%;"></div></div>
+                            </div>
+                        </div>
+
+                        <!-- Módulo 4 -->
+                        <div class="tarjeta-curso">
+                            <div class="cabecera-curso">
+                                <span class="codigo-curso">MOD-SEG1</span>
+                                <span class="badge-estado aprobado">Aprobado</span>
+                            </div>
+                            <h3>Seguridad Ocupacional</h3>
+                            <p class="docente-curso">👩‍🏫 Prof. Jonattan Ospina Paez</p>
+                            <div class="meta-curso">
+                                <span>Módulo Finalizado</span>
+                                <span>Nota Final: 5.0</span>
+                            </div>
+                            <div class="barra-progreso-contenedor">
+                                <div class="progreso-texto"><span>Completado</span> <span>100%</span></div>
+                                <div class="barra-progreso"><div class="relleno-progreso" style="width: 100%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sidebar con Cursos Cortos y Diplomados -->
+                <aside class="panel-contenido lateral">
+                    <h2>Oferta Complementaria</h2>
+                    <p class="descripcion-lateral">Potencia tu hoja de vida con los programas System Plus:</p>
+
+                    <div class="lista-avisos">
+                        <div class="item-aviso">
+                            <div class="info-aviso">
+                                <strong>Social Media - Marketing Digital</strong>
+                                <span>Diplomado intensivo de fin de semana.</span>
+                            </div>
+                            <span class="badge-fecha">Inscripciones Abiertas</span>
+                        </div>
+
+                        <div class="item-aviso">
+                            <div class="info-aviso">
+                                <strong>Programación con Excel</strong>
+                                <span>Curso corto: Macros, VLOOKUP y Dashboards.</span>
+                            </div>
+                            <span class="badge-fecha">Descuento Estudiantil</span>
+                        </div>
+
+                        <div class="item-aviso">
+                            <div class="info-aviso">
+                                <strong>Proyecciones Financieras</strong>
+                                <span>Aprende a formular proyectos de negocio.</span>
+                            </div>
+                            <span class="badge-fecha urgente">Últimos Cupos</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- ========================================================== -->
+            <!-- NOVEDADES Y COMUNIDAD SYSTEM PLUS                          -->
+            <!-- ========================================================== -->
+            <section class="panel-contenido">
+                <div class="cabecera-panel">
+                    <h2>Comunidad & Noticias System Plus</h2>
+                    <span class="badge-novedad">¡Novedades del Instituto!</span>
+                </div>
+
+                <div class="rejilla-noticias">
+                    <!-- Tarjeta de Noticia 1 con Imagen -->
+                    <article class="tarjeta-noticia">
+                        <div class="contenedor-img-noticia">
+                            <!-- Banner Noticia 1 -->
+                            <img src="Assets/Practicas.webp" alt="Convocatoria de Prácticas Laborales" class="img-noticia" onerror="this.src='https://via.placeholder.com/400x180/0b1329/38bdf8?text=Practicas+Laborales+System+Plus'">
+                        </div>
+                        <div class="cuerpo-noticia">
+                            <span class="fecha-noticia">🗓️ Octubre 2026</span>
+                            <h3>Convocatoria de Prácticas Laborales Abierta</h3>
+                            <p>Las empresas aliadas a System Plus iniciaron la recepción de hojas de vida para estudiantes de Módulo II y III.</p>
+                            <a href="#" class="enlace-noticia">Más detalles &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta de Noticia 2 con Imagen -->
+                    <article class="tarjeta-noticia">
+                        <div class="contenedor-img-noticia">
+                            <!-- Banner Noticia 2 -->
+                            <img src="Assets/Seminario.webp" alt="Jornada de Certificación" class="img-noticia" onerror="this.src='https://via.placeholder.com/400x180/0b1329/e11d48?text=Talleres+y+Diplomados'">
+                        </div>
+                        <div class="cuerpo-noticia">
+                            <span class="fecha-noticia">🗓️ Próximo Sábado</span>
+                            <h3>Seminario Gratuito: Herramientas Digitales</h3>
+                            <p>Asiste a nuestra jornada presencial y suma horas adicionales a tu certificado técnico en System Plus.</p>
+                            <a href="#" class="enlace-noticia">Reservar cupo &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Tabla de Entregables / Prácticas -->
+            <section class="panel-contenido seccion-tabla">
+                <div class="cabecera-panel">
+                    <h2>Entregables de Prácticas Laborales</h2>
+                </div>
+
+                <div class="contenedor-tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Módulo</th>
+                                <th>Asignatura / Taller</th>
+                                <th>Entregable Práctico</th>
+                                <th>Fecha Límite</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>MOD-DEV2</strong></td>
+                                <td>Desarrollador Web</td>
+                                <td>Proyecto Final: Portal Web Responsive</td>
+                                <td>15 de Octubre</td>
+                                <td><span class="badge-tabla pendiente">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>MOD-HARD1</strong></td>
+                                <td>Mantenimiento de PC</td>
+                                <td>Ensamble y Mantenimiento Preventivo</td>
+                                <td>20 de Octubre</td>
+                                <td><span class="badge-tabla pendiente">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>MOD-DIS1</strong></td>
+                                <td>Diseño Gráfico</td>
+                                <td>Manual de Identidad Visual para Pyme</td>
+                                <td>02 de Octubre</td>
+                                <td><span class="badge-tabla completada">Entregado (4.8)</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Ventana Modal de Certificados -->
+        <div id="modal-certificado" class="modal-overlay oculto">
+            <div class="modal-caja">
+                <div class="modal-cabecera">
+                    <h3>📄 Solicitud de Certificado System Plus</h3>
+                    <button id="btn-cerrar-modal" class="cerrar-modal">✖</button>
+                </div>
+
+                <form id="form-modal" class="formulario-modal">
+                    <div class="grupo-campo">
+                        <label>Estudiante:</label>
+                        <input type="text" value="Juan Pablo Pérez" disabled>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label>Tipo de Certificación:</label>
+                        <select>
+                            <option>Certificado de Estudio Módulo Activo</option>
+                            <option>Certificado de Notas e Historial Académico</option>
+                            <option>Constancia de Horas Prácticas Laborales</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label>Observaciones o Motivo:</label>
+                        <textarea rows="3" placeholder="Ej. Presentación a empresa para práctica profesional..."></textarea>
+                    </div>
+
+                    <div class="modal-pie">
+                        <button type="button" id="btn-cancelar-modal" class="boton-secundario">Cancelar</button>
+                        <button type="submit" class="boton-primario">Enviar Solicitud</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
